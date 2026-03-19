@@ -1,0 +1,16 @@
+{
+    "name": "math/php-router",
+    "description": "Sistema de rotas em PHP com suporte a métodos HTTP (GET, POST, PUT, DELETE) e path parameters, permitindo a definição de rotas dinâmicas de forma simples e organizada.",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matheus Cardoso",
+            "email": "mathcardoso792@gmail.com"
+        }
+    ],
+    "require": {}
+}
