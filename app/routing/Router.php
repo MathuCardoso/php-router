@@ -32,8 +32,7 @@ class Router
 
 	public static function put(string $uri, array|callable $action)
 	{
-		if (isset($_POST['__method'])
-			&& $_POST['__method'] === 'PUT') {
+		if (isset($_POST['__method']) && $_POST['__method'] === 'PUT') {
 			$_SERVER['REQUEST_METHOD'] = 'PUT';
 
 			self::$routes[] = [
@@ -47,8 +46,7 @@ class Router
 
 	public static function delete(string $uri, array|callable $action)
 	{
-		if (isset($_POST['__method'])
-			&& $_POST['__method'] === 'DELETE') {
+		if (isset($_POST['__method']) && $_POST['__method'] === 'DELETE') {
 			$_SERVER['REQUEST_METHOD'] = 'DELETE';
 
 			self::$routes[] = [
@@ -86,10 +84,10 @@ class Router
 		$serverUriSegments = array_filter(explode('/', trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/')));
 		$serverUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-		$rusCount = \count($requestedUriSegments);
-		$susCount = \count($serverUriSegments);
+		$reqUriCount = \count($requestedUriSegments);
+		$serUriCount = \count($serverUriSegments);
 
-		if (($rusCount === $susCount)
+		if (($reqUriCount === $serUriCount)
 			&& (str_starts_with($uriFixed, $serverUri))
 			&& ($_SERVER['REQUEST_METHOD'] === $route['httpMethod'])
 		) {
@@ -150,7 +148,6 @@ class Router
 		}
 
 		http_response_code(404);
-    echo "ERRO 404";
-    echo "Página não encontrada!";
+    exit("ERRO 404. PÁGINA NÃO ENCONTRADA!");
 	}
 }

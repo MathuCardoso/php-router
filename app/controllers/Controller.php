@@ -16,8 +16,6 @@ class Controller
 			exit;
 		}
 		http_response_code(404);
-    echo "ERRO 404";
-    echo "Página não econtrada!";
-		exit;
+    exit("ERRO 404. PÁGINA NÃO ENCONTRADA!");
 	}
 }
